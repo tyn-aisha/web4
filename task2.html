@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AITU Hack 2026 – Registration (Task 2)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      background-color: #F4F7F5;
+      padding: 2rem 0;
+    }
+
+    .card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(22, 48, 43, 0.1);
+    }
+
+    .card-header {
+      background-color: #0F6B5F;
+      color: #fff;
+      border-radius: 1rem 1rem 0 0 !important;
+      font-weight: 600;
+    }
+
+    .form-label { font-weight: 500; }
+
+    /* Errors appear ONLY after the user has interacted with the field */
+    .form-control:user-invalid,
+    .form-select:user-invalid,
+    .form-check-input:user-invalid {
+      border-color: #dc3545;
+    }
+
+    .form-control:user-invalid:focus,
+    .form-select:user-invalid:focus {
+      box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+    }
+
+    .form-control:user-invalid ~ .invalid-feedback,
+    .form-select:user-invalid ~ .invalid-feedback,
+    .form-check-input:user-invalid ~ .invalid-feedback {
+      display: block;
+    }
+
+    .radio-group:has(.form-check-input:user-invalid) .invalid-feedback,
+    fieldset:has(.form-check-input:user-invalid) .invalid-feedback {
+      display: block;
+    }
+
+    .form-control:user-valid,
+    .form-select:user-valid {
+      border-color: #198754;
+    }
+
+    .btn-primary {
+      background-color: #0F6B5F;
+      border-color: #0F6B5F;
+    }
+
+    .btn-primary:hover {
+      background-color: #0c584e;
+      border-color: #0c584e;
+    }
+
+    .required-mark::after {
+      content: " *";
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header py-3">
+            <h1 class="h4 mb-0">Registration for AITU Hack 2026</h1>
+          </div>
+          <div class="card-body p-4">
+            <form action="#" method="post">
+              <!-- Full name * : 2–40 characters -->
+              <div class="mb-3">
+                <label for="fullName" class="form-label required-mark">Full name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName"
+                       required minlength="2" maxlength="40"
+                       autocomplete="name" placeholder="Anna-Maria Lee">
+                <div class="invalid-feedback">
+                  Please enter a name between 2 and 40 characters.
+                </div>
+              </div>
+
+              <!-- University email * -->
+              <div class="mb-3">
+                <label for="email" class="form-label required-mark">University email</label>
+                <input type="email" class="form-control" id="email" name="email"
+                       required autocomplete="email"
+                       placeholder="a.fedenko@astanait.edu.kz">
+                <div class="invalid-feedback">
+                  Please enter a valid email address.
+                </div>
+              </div>
+
+              <!-- Age * : whole number 16–30 -->
+              <div class="mb-3">
+                <label for="age" class="form-label required-mark">Age</label>
+                <input type="number" class="form-control" id="age" name="age"
+                       required min="16" max="30" step="1" placeholder="18">
+                <div class="invalid-feedback">
+                  Age must be a whole number between 16 and 30.
+                </div>
+              </div>
+
+              <!-- Team size * : whole number 1–4 -->
+              <div class="mb-3">
+                <label for="teamSize" class="form-label required-mark">Team size</label>
+                <input type="number" class="form-control" id="teamSize" name="teamSize"
+                       required min="1" max="4" step="1" placeholder="4">
+                <div class="invalid-feedback">
+                  Team size must be a whole number from 1 to 4.
+                </div>
+              </div>
+
+              <!-- Track * -->
+              <div class="mb-3">
+                <label for="track" class="form-label required-mark">Track</label>
+                <select class="form-select" id="track" name="track" required>
+                  <option value="" selected disabled>Choose…</option>
+                  <option value="Web">Web</option>
+                  <option value="Mobile">Mobile</option>
+                  <option value="AI">AI</option>
+                  <option value="GameDev">GameDev</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a track.
+                </div>
+              </div>
+
+              <!-- Arrival day * : 20–22 Nov 2026 -->
+              <div class="mb-3">
+                <label for="arrival" class="form-label required-mark">Arrival day</label>
+                <input type="date" class="form-control" id="arrival" name="arrival"
+                       required min="2026-11-20" max="2026-11-22">
+                <div class="invalid-feedback">
+                  Arrival day must be between 20 and 22 November 2026.
+                </div>
+              </div>
+
+              <!-- Check-in time * : 09:00–18:00 every 30 min (step=1800 s) -->
+              <div class="mb-3">
+                <label for="checkin" class="form-label required-mark">Check-in time</label>
+                <input type="time" class="form-control" id="checkin" name="checkin"
+                       required min="09:00" max="18:00" step="1800">
+                <div class="invalid-feedback">
+                  Check-in time must be between 09:00 and 18:00 in 30-minute steps.
+                </div>
+              </div>
+
+              <!-- Entry fee * : 0–5000 ₸, steps of 500 -->
+              <div class="mb-3">
+                <label for="fee" class="form-label required-mark">Entry fee (₸)</label>
+                <input type="number" class="form-control" id="fee" name="fee"
+                       required min="0" max="5000" step="500" placeholder="1500">
+                <div class="invalid-feedback">
+                  Entry fee must be between 0 and 5000 ₸ in steps of 500.
+                </div>
+              </div>
+
+              <!-- Experience level * -->
+              <fieldset class="mb-3">
+                <legend class="form-label required-mark fs-6">Experience level</legend>
+                <div class="radio-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="experience"
+                           id="expBeginner" value="Beginner" required>
+                    <label class="form-check-label" for="expBeginner">Beginner</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="experience"
+                           id="expIntermediate" value="Intermediate">
+                    <label class="form-check-label" for="expIntermediate">Intermediate</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="experience"
+                           id="expAdvanced" value="Advanced">
+                    <label class="form-check-label" for="expAdvanced">Advanced</label>
+                  </div>
+                  <div class="invalid-feedback">
+                    Please choose an experience level.
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- GitHub profile – optional full URL -->
+              <div class="mb-3">
+                <label for="github" class="form-label">GitHub profile</label>
+                <input type="url" class="form-control" id="github" name="github"
+                       placeholder="https://github.com/yerassyl-dev" autocomplete="url">
+                <div class="invalid-feedback">
+                  Please enter a full URL (including https://).
+                </div>
+                <div class="form-text">Optional. Must be a complete URL if provided.</div>
+              </div>
+
+              <!-- Password * : 8–20 characters -->
+              <div class="mb-3">
+                <label for="password" class="form-label required-mark">Password</label>
+                <input type="password" class="form-control" id="password" name="password"
+                       required minlength="8" maxlength="20" autocomplete="new-password">
+                <div class="invalid-feedback">
+                  Password must be between 8 and 20 characters.
+                </div>
+              </div>
+
+              <!-- Motivation * : 50–300 characters -->
+              <div class="mb-3">
+                <label for="motivation" class="form-label required-mark">Motivation</label>
+                <textarea class="form-control" id="motivation" name="motivation"
+                          required minlength="50" maxlength="300" rows="4"
+                          placeholder="Tell us why you want to participate (50–300 characters)"></textarea>
+                <div class="invalid-feedback">
+                  Motivation must be between 50 and 300 characters.
+                </div>
+              </div>
+
+              <!-- Rules agreement * -->
+              <div class="mb-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="rules" name="rules"
+                         value="yes" required>
+                  <label class="form-check-label required-mark" for="rules">
+                    I agree to the hackathon rules
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree to the rules to register.
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary px-4">Register</button>
+              <button type="reset" class="btn btn-outline-secondary ms-2">Clear</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
