@@ -16,7 +16,6 @@
       </div>
       <div class="ticket-body">
         <form action="#" method="get" id="ticketForm">
-          <!-- One way / Round trip – two radio buttons styled as pills -->
           <div class="trip-type-group" role="group" aria-label="Trip type">
             <input type="radio" class="btn-check" name="tripType" id="oneWay" value="oneway" checked>
             <label class="btn" for="oneWay">One way</label>
@@ -25,7 +24,6 @@
             <label class="btn" for="roundTrip">Round trip</label>
           </div>
 
-          <!-- From / To -->
           <div class="row g-3 mb-3">
             <div class="col-md-6">
               <div class="form-floating">
@@ -43,7 +41,6 @@
             </div>
           </div>
 
-          <!-- Departure / Return / Passengers -->
           <div class="row g-3 mb-3">
             <div class="col-md-4">
               <label for="departure" class="form-label required-mark">Departure</label>
@@ -66,7 +63,6 @@
             </div>
           </div>
 
-          <!-- Carriage class – required radio group -->
           <fieldset class="mb-3">
             <legend class="form-label required-mark fs-6 mb-2">Carriage class</legend>
             <div class="d-flex flex-wrap gap-3 carriage-group">
@@ -88,7 +84,6 @@
             </div>
           </fieldset>
 
-          <!-- Phone / Email -->
           <div class="row g-3 mb-3">
             <div class="col-md-6">
               <label for="phone" class="form-label required-mark">Phone</label>
@@ -109,10 +104,9 @@
             </div>
           </div>
 
-          <!-- Checkboxes -->
           <div class="mb-3">
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" id="sms" name="sms" value="1">
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" role="switch" id="sms" name="sms" value="1">
               <label class="form-check-label" for="sms">Also send the ticket by SMS</label>
             </div>
             <div class="form-check">
@@ -124,8 +118,6 @@
             </div>
           </div>
 
-          <!-- Buttons – HTML order: Clear then Find trains.
-               On mobile CSS flex-direction: column-reverse puts Find trains visually on top. -->
           <div class="btn-row mt-4">
             <button type="reset" class="btn btn-clear">Clear</button>
             <button type="submit" class="btn btn-find">Find trains</button>
